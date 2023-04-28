@@ -7,7 +7,7 @@ fun main(){
     val student2 = Student("Max Mustermann", 40)
 
     math.grade = 4.0
-    chemistry.grade = 2.0
+    chemistry.grade = 5.0
     english.grade = 3.5
 
     student1.addCourse(math)
@@ -20,4 +20,5 @@ fun main(){
 
     println("Durchschnitt Student1: ${student1.averageGrade()}")
     println("Durchschnitt Student2: ${student2.averageGrade()}")
+    println("Durchgefallen: ${tenB.getPercentageOfFailedStudents()}%")
 }
