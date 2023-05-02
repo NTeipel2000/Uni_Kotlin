@@ -7,5 +7,5 @@ class StudentClass(private val id: String) {
     }
 
     //Liveaufgabe
-    fun getPercentageOfFailedStudents() = (students.filter { it.averageGrade() > 4.0 }.size.toDouble() / students.size.toDouble()) * 100
+    fun getPercentageOfFailedStudents() = (students.count { it.averageGrade() > 4.0 }.toDouble() / students.size) * 100
 }
