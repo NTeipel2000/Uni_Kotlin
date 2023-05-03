@@ -1,24 +1,28 @@
 fun main(){
-    val math = Course(CourseName.MATH)
-    val chemistry = Course(CourseName.CHEMISTRY)
-    val english = Course(CourseName.ENGLISH)
+    val addressList : List<Address> = createAddressList()
+    val personList : List<Person> = createPersonList(addressList)
 
-    val student1 = Student("Nils Teipel", 22)
-    val student2 = Student("Max Mustermann", 40)
+    println("Personen in Stadt1: ${getPersonsInSameCity(personList, "Stadt1")}\n")
+    println("Nummer Personen in Land1: ${numberOfPersonsInCountry(personList, "Land1")}\n")
+    println("Erste Person in Straße3: ${getFirstPersonInStreet(personList, "Straße3")}")
+}
 
-    math.grade = 4.0
-    chemistry.grade = 5.0
-    english.grade = 3.5
+fun getPersonsInSameCity(persons: List<Person>, city: String): List<Person> = persons.filter { it.address.city == city }
 
-    student1.addCourse(math)
-    student1.addCourse(chemistry)
-    student2.addCourse(english)
+fun numberOfPersonsInCountry(persons: List<Person>, country: String): Int = persons.filter { it.address.country == country }.sumOf { it.address.numberOfResidents }
 
-    val tenB = StudentClass("10b")
-    tenB.addStudent(student1)
-    tenB.addStudent(student2)
+fun getFirstPersonInStreet(persons: List<Person>, street: String): Person? = persons.find { it.address.street == street }
 
-    println("Durchschnitt Student1: ${student1.averageGrade()}")
-    println("Durchschnitt Student2: ${student2.averageGrade()}")
-    println("Durchgefallen: ${tenB.getPercentageOfFailedStudents()}%")
+fun createAddressList(): List<Address>{
+    val address1 = Address("Straße1", "1", "11111", "Stadt1", "Land1", 34)
+    val address2 = Address("Straße1", "2", "11111", "Stadt1", "Land1", 21)
+    val address3 = Address("Straße2", "2", "22222", "Stadt2", "Land2", 10)
+    return listOf(address1, address2, address3)
+}
+
+fun createPersonList(addressList: List<Address>): List<Person>{
+    val person1 = Person("Person1", 18, addressList[0])
+    val person2 = Person("Person2", 26, addressList[1])
+    val person3 = Person("Person3", 20, addressList[2])
+    return listOf(person1, person2, person3)
 }
