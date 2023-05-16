@@ -20,14 +20,13 @@ class Zoo {
 
     fun getNumberOfGreetingParrots(words: List<String>): Int{
         var count = 0
-        for(a in animals){
-            if(a is Parrot){
-                for(s in a.knownWords){
-                    for(w in words)
-                        if(s == w){
-                            count++
-                            break
-                        }
+        for(a in animals.filterIsInstance<Parrot>()){
+            for(s in a.knownWords){
+                for(w in words) {
+                    if (s == w) {
+                        count++
+                        break
+                    }
                 }
             }
         }
