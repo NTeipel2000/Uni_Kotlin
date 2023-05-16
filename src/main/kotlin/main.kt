@@ -17,7 +17,7 @@ fun main(){
     cat.addAdoption(LimitedAdoption(60))
     cat.addAdoption(UnlimitedAdoption("Sandy"))
 
-    val parrot = Parrot ("Blaupapagei", 1, false , listOf (" Hallo", "Guten Tag", "Ich mag Pizza", "Tschüß"))
+    val parrot = Parrot("Blaupapagei", 1, false , listOf ("Hallo", "Guten Tag", "Ich mag Pizza", "Tschüß"))
     parrot.addAdoption(UnlimitedAdoption("Mario"))
 
     val zoo = Zoo()

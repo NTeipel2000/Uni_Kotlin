@@ -27,6 +27,7 @@ class Zoo {
                         count++
                         break
                     }
+                    break
                 }
             }
         }
